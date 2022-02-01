@@ -96,4 +96,4 @@ if __name__ == "__main__":
 
     p0 = {frozendict([(x, 2)]): 3, frozendict([(y, 1)]): 1}
     p1 = {frozendict([(x, 2)]): 2, frozendict([(y, 1)]): 1}
-    assert add(p0, p1) == {frozendict({"y": 1}): 2, frozendict({"x": 2}): 5}
+    assert add(p0, p1) == {frozendict({y: 1}): 2, frozendict({x: 2}): 5}

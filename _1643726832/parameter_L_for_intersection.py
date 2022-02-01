@@ -12,6 +12,8 @@ polynomial = {
     ...
 }
 
+UPDATE: replace frozenset with frozendict
+
 Where the variables are [x, y ...z] and the powers/exponents are [n, m ..p].
 
 Each item in the dictionary is a monomial term.
@@ -34,6 +36,10 @@ Let's try sum.
 """
 
 from itertools import product
+from frozendict import frozendict
+
+fs = frozenset
+fd = frozendict
 
 
 def add(p0, p1):
@@ -79,5 +85,14 @@ def mul(p0, p1):
             power = vars0.get(symbol, 0) + vars1.get(symbol, 0)
             new_vars.append((symbol, power))
 
-        results[frozenset(new_vars)] = coeff0 * coeff1
+        results[fs(new_vars)] = coeff0 * coeff1
     return results
+
+if __name__ == "__main__":
+
+    for v in 'abcdefghijklmnopqrstuvwxyz':
+        globals()[v] = v
+
+    p0 = {frozendict([(x, 2)]): 3, frozendict([(y, 1)]): 1}
+    p1 = {frozendict([(x, 2)]): 2, frozendict([(y, 1)]): 1}
+    assert add(p0, p1) == {frozendict({'y': 1}): 2, frozendict({'x': 2}): 5}

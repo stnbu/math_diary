@@ -1,18 +1,19 @@
-
 from sympy import *
 from sympy.plotting import plot_implicit
 
 inf = 100
 
-x, y = symbols('x y')
+x, y = symbols("x y")
 
 x_var = x, inf - 1, 1
 y_var = y, inf - 1, 1
 
 
-#p1 = plot_implicit(Eq(x * y - 1), backend='matplotlib')
-#p1 = plot_implicit(Eq((inf/x) * (inf/y) - 1), backend='matplotlib')
-p3 = plot_implicit(Eq((inf - y) - (inf - x)), x_var=x_var, y_var=y_var, backend='matplotlib')
+# p1 = plot_implicit(Eq(x * y - 1), backend='matplotlib')
+# p1 = plot_implicit(Eq((inf/x) * (inf/y) - 1), backend='matplotlib')
+p3 = plot_implicit(
+    Eq((inf - y) - (inf - x)), x_var=x_var, y_var=y_var, backend="matplotlib"
+)
 
 """
 [Let's just say
@@ -34,4 +35,3 @@ The interesting revelation is: if you homogenize `f` with a new `z` term and let
 zero, your `f` will transform into a straight line whose slope is the `[x : y : 0]` point you
 are interested in.
 """
-

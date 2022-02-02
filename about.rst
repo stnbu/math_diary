@@ -1,8 +1,7 @@
 
 .. _about:
 
-About mb+math@unintuitive.org
-============================
+About Math Diary
+================
 
-The world wants to know more about you.
-
+`I <mailto:mb+math@unintuitive.org>`_ am just a fellow who's interested in math.

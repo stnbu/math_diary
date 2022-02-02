@@ -22,8 +22,7 @@ Using the above-mentioned library, I was able (victory!) to model the parameteri
 
 whose output is
 
-.. include:: 1643834463_files/curve-line_intersect.py.out.txt
-   :literal:
+.. program-output:: python3 1643834463_files/curve-line_intersect.py
 
 Pretty neat, eh?
 

@@ -19,7 +19,7 @@ import alabaster
 # blog_path = 'blog'
 
 # The "title" for the blog, used in active pages.  Default is ``'Blog'``.
-blog_title = "Math Diary Blog"
+blog_title = "Math Diary"
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
@@ -35,7 +35,7 @@ blog_baseurl = "https://unintuitive.org/math_blog"
 # links. Dictionary keys are what should be used in ``post`` directive
 # to refer to the author.  Default is ``{}``.
 blog_authors = {
-    "mb+math@unintuitive.org": ("mb+math@unintuitive.org", None),
+    "mb": ("Mike Burr", "mb+math@unintuitive.org"),
 }
 
 
@@ -208,7 +208,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Math Diary"
-copyright = "2022, mb+math@unintuitive.org"
+copyright = "WFC"
 author = "mb+math@unintuitive.org"
 
 # The version info for the project you're documenting, acts as replacement for

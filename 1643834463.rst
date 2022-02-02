@@ -1,0 +1,34 @@
+
+Polynomial-Line Intersections
+=============================
+
+.. post:: Feb 02, 2022
+   :tags:
+   :category: Elliptic Tales
+
+Knowing full-well that such things are already out there, I created a `python package <https://github.com/stnbu/polynomier>`_ to model polynomials.
+
+My bigger goal is to wade my way through `Elliptic Tales <https://press.princeton.edu/books/hardcover/9780691151199/elliptic-tales>`_, a "popular mathematics" book that identifies as a graduate-level text book. It's a slog. :sub:`*`
+
+I'll consider this the first post in a series about the book. As this is called "Math Diary", there is no `math` tag. It's all math. Isn't it?
+
+So I won't feel too bad if occasionally I find myself writing multiple posts and new tools in order to comprehend
+this material. I wasn't aware of this until just recently: writing python to model mathematical ideas is just the thing for upping my comprehension game and actually, counter-intuitively, making the going easier...and more enjoyable.
+
+Using the above-mentioned library, I was able (victory!) to model the parameterized line equation substitution featured on p73:
+
+.. include:: 1643834463_files/curve-line_intersect.py
+   :literal:
+
+whose output is
+
+.. include:: 1643834463_files/curve-line_intersect.py.out.txt
+   :literal:
+
+Pretty neat, eh?
+
+The next page and a half get pretty deep for my waders. I hope _deriving_ polynomial composition will make the going more intuitive.
+
+----
+
+| :sup:`*` Historians will note I started out with `this text <http://www.hyperelliptic.org/HEHCC/>`_ but then found I had to immediately downshift to a "primer" on the topic.

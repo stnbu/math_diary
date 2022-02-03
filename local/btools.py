@@ -1,5 +1,6 @@
 import io
 
+
 def print_svg(plot):
     backend = plot.backend(plot)
     backend.process_series()

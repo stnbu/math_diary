@@ -26,7 +26,45 @@ whose output is
 
 Pretty neat, eh?
 
-The next page and a half get pretty deep for my waders. I hope *deriving* polynomial composition will make the going more intuitive.
+The text chose this parameterization (L) such that ``g(0) = f(ξ, η) = 0``. What happens if we change ``g``? The fact that they intersect implies that ``g`` has no constant terms. Let's see if we can break that...
+
+.. include:: 1643834463_files/curve-line_nointersect.py
+   :literal:
+
+outputs
+      
+.. program-output:: python3 1643834463_files/curve-line_nointersect.py
+
+Oops! A constant term!
+
+Let's take a look at the plot of both equations. Using the sympy snippet
+
+.. include:: 1643834463_files/et_p73_exercise.py
+   :literal:
+
+whose plot looks like
+
+.. program-output:: python3 1643834463_files/et_p73_exercise.py
+
+.. raw:: html
+   :file: 1643834463_files/et_p73_exercise.py.svg
+
+Since *intersecting* is key, it looks like we could just negate the line's slope and still get no constant terms. Let us see...
+
+.. include:: 1643834463_files/curve-line_intersect_negslope.py
+   :literal:
+
+which outputs
+
+.. program-output:: python3 1643834463_files/curve-line_intersect_negslope.py
+
+Indeed, still no constant term. It also looks like we could slide it up just a bit
+
+and...
+
+still no constant terms.
+
+The next page and a half gets pretty deep for my waders. I hope *deriving* polynomial composition will make the going more intuitive.
 
 ----
 

@@ -196,7 +196,6 @@ extensions = [
     "sphinx.ext.todo",
     "alabaster",
     "ablog",
-    "h_w",
     "sphinxcontrib.programoutput",
 ]
 

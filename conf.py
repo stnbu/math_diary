@@ -102,13 +102,17 @@ blog_authors = {
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-    '**': [ 'about.html',
-            'postcard.html', 'navigation.html',
-            'recentposts.html', 'tagcloud.html',
-            'categories.html',  'archives.html',
-            'searchbox.html',
-            ],
-    }
+    "**": [
+        "about.html",
+        "postcard.html",
+        "navigation.html",
+        "recentposts.html",
+        "tagcloud.html",
+        "categories.html",
+        "archives.html",
+        "searchbox.html",
+    ],
+}
 
 # -- Blog Feed Options --------------------------------------------------------
 
@@ -181,18 +185,18 @@ html_sidebars = {
 # -- Sphinx Options -----------------------------------------------------------
 
 # If your project needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.2'
+needs_sphinx = "1.2"
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.extlinks',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'alabaster',
-    'ablog',
-    'sphinxcontrib.programoutput',
+    "sphinx.ext.extlinks",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "alabaster",
+    "ablog",
+    "sphinxcontrib.programoutput",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -254,7 +258,7 @@ exclude_patterns = [""]
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -270,13 +274,13 @@ todo_include_todos = "False"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+html_theme = "alabaster"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_button': False,
+    "github_button": False,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -362,5 +366,3 @@ html_static_path = ["_static"]
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = "MathDiarydoc"
-
-

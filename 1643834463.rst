@@ -10,7 +10,7 @@ Knowing full-well that such things are already out there, I created a `python pa
 
 My bigger goal is to wade my way through `Elliptic Tales <https://press.princeton.edu/books/hardcover/9780691151199/elliptic-tales>`_, a "popular mathematics" book that identifies as a graduate-level text book. It's a slog. :sub:`*`
 
-I'll consider this the first post in a series about the book. As this is called "Math Diary", there is no `math` tag. It's all math. Isn't it?
+I'll consider this the first post in a series about the book. As this is called "Math Diary", there is no ``math`` tag. It's all math. Isn't it?
 
 So I won't feel too bad if occasionally I find myself writing multiple posts and new tools in order to comprehend
 this material. I wasn't aware of this until just recently: writing python to model mathematical ideas is just the thing for upping my comprehension game and actually, counter-intuitively, making the going easier...and more enjoyable.
@@ -26,7 +26,7 @@ whose output is
 
 Pretty neat, eh?
 
-The next page and a half get pretty deep for my waders. I hope _deriving_ polynomial composition will make the going more intuitive.
+The next page and a half get pretty deep for my waders. I hope *deriving* polynomial composition will make the going more intuitive.
 
 ----
 

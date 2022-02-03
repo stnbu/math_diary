@@ -8,34 +8,31 @@ Straightening the Curves...
 
 The big revelation that came to in me the few pages starting around p54 is...
 
-** Letting the `z` of a homogenized polynomial in `x,y` has the effect of straightening the curve. With `z=0` the resulting curve is a straight line with the slope of `[a : b: 0]`; the point at infinity that ends the original polynomial **
+.. important:: Letting the ``z`` of a homogenized polynomial in ``x,y`` has the effect of straightening the curve. With ``z=0`` the resulting curve is a straight line with the slope of ``[a : b: 0]``; the point at infinity that ends the original polynomial
 
 For example, the following `sympy <https://www.sympy.org/>`_ snippet
 
 .. include:: 1643839516_files/projective.py
    :literal:
 
-
 produces
 
-.. program-output:: python3 1643839516_files/projective.py
-   :nostderr:
-
-
+.. raw:: html
+   :file: projective.html
 
 tbd...
 
 Now homogenize that same polynomial.
 
 
-with `z=1` we get the /same/ polynomial:
+with ``z=1`` we get the *same* polynomial:
 
 image
 
-With `z=0.5`, we get some amount of flattening:
+With ``z=0.5``, we get some amount of flattening:
 
 
-The following are progressions from `z=1` to `z=0` in steps of `0.1`:
+The following are progressions from ``z=1`` to ``z=0`` in steps of ``0.1``:
 
 
 We end up with a straight line!

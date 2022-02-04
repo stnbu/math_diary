@@ -14,6 +14,7 @@ class ScriptdocDirective(rst.Directive):
     required_arguments = 1
     option_spec = dict(
         output_language=unchanged,
+        separator_html=unchanged,
         source_path=unchanged,
         source_language=unchanged,
         source_show=flag,
@@ -26,6 +27,7 @@ class ScriptdocDirective(rst.Directive):
         node["source_show"] = "source_show" in self.options
         options = [
             ("output_language", "text"),
+            ("separator_html", r"<div>outputs&hellip;</div>"),
             ("source_path", None),
             ("source_language", "text"),
         ]
@@ -67,6 +69,8 @@ def run(app, doctree):
                 source_string = f.read()
             source_node = nodes.literal_block(source_string, source_string)
             source_node["language"] = source_language
+            separator_node = nodes.raw("", node["separator_html"], format="html")
+            content.insert(0, separator_node)
             content.insert(0, source_node)
 
         node.replace_self(content)

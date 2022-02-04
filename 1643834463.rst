@@ -6,6 +6,18 @@ Polynomial-Line Intersections
    :tags:
    :category: Elliptic Tales
 
+	    
+
+TEST TEST TEST TEST 
+
+.. scriptdoc:: echo <p><b>This</b> is html</p>
+   :format: html
+
+.. scriptdoc:: echo <p><b>This</b> is html</p>
+   :format: literal
+
+TEST TEST TEST TEST
+
 Knowing full-well that such things are already out there, I created a `python package <https://github.com/stnbu/polynomier>`_ to model polynomials.
 
 My bigger goal is to wade my way through `Elliptic Tales <https://press.princeton.edu/books/hardcover/9780691151199/elliptic-tales>`_, a "popular mathematics" book that identifies as a graduate-level text book. It's a slog. :sub:`*`
@@ -43,8 +55,6 @@ Let's take a look at the plot of both equations. Using the sympy snippet
    :literal:
 
 whose plot looks like
-
-.. program-output:: python3 1643834463_files/et_p73_exercise.py
 
 .. raw:: html
    :file: 1643834463_files/et_p73_exercise.py.svg

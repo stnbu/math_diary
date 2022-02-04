@@ -1,31 +1,37 @@
-"""
-
-        if 'caption' in self.options:
-            caption = self.options['caption'] or self.arguments[0]
-"""
-
 from subprocess import Popen, PIPE
 from docutils import nodes
 from docutils.parsers import rst
-from docutils.parsers.rst.directives import unchanged
+from docutils.parsers.rst.directives import flag, unchanged
 
 
 class scriptdoc(nodes.Element):
     pass
 
-
 class ScriptdocDirective(rst.Directive):
     has_content = False
     final_argument_whitespace = True
     required_arguments = 1
-    option_spec = dict(format=unchanged)
+    option_spec = dict(
+        output_language=unchanged,
+
+        source_path=unchanged,
+        source_language=unchanged,
+        source_show=flag,
+    )
 
     def run(self):
         env = self.state.document.settings.env
         node = scriptdoc()
         node.line = self.lineno
+        node["source_show"] = "source_show" in self.options
+        options = [
+            ("output_language", "text"),
+            ("source_path", None),
+            ("source_language", "text"),
+        ]
+        for key, default in options:
+            node[key] = self.options.get(key, default)
         node["command"] = self.arguments[0]
-        node["format"] = self.options["format"]
         self.add_name(node)
         return [node]
 
@@ -39,17 +45,28 @@ def run_scripts(app, doctree):
                 "subprocess `%s` died with %s: %s"
                 % (node["command"], proc.returncode, err.decode())
             )
-        output = out.decode()
-        format = node["format"]
-        new_node = None
-        if format == "html":
-            new_node = nodes.raw("", output, format=format)
-        elif format == "literal":
-            new_node = nodes.literal_block(output, output)
-            new_node["language"] = "text"
+        output_string = out.decode()
+        output_node = None
+        output_language = node.get("output_language", "text")
+        source_language = node.get("source_language", "text")
+        source_show = node.get("source_show", False)
+        if output_language == "html":
+            output_node = nodes.raw("", output_string, format=output_language)
         else:
-            raise Exception("Unsupported format: %s" % format)
-        node.replace_self(new_node)
+            output_node = nodes.literal_block(output_string, output_string)
+            output_node["language"] = output_language
+
+        if source_show:
+            source_path = node.get("source_path", node["command"].split()[0]) # good luck!
+            source_string = None
+            with open(source_path) as f:
+                source_string = f.read()
+            source_node = nodes.literal_block(source_string, source_string)
+            source_node["language"] = source_language
+            output_node.append(source_node)
+            
+        node.replace_self(output_node)
+
 
 
 def setup(app):

@@ -1,3 +1,4 @@
+
 from subprocess import Popen, PIPE
 from docutils import nodes
 from docutils.parsers import rst
@@ -24,16 +25,17 @@ class ScriptdocDirective(rst.Directive):
         env = self.state.document.settings.env
         node = scriptdoc()
         node.line = self.lineno
+        node["command"] = self.arguments[0]
         node["source_show"] = "source_show" in self.options
+        fallback_source_path = node["command"].split()[0]
         options = [
             ("output_language", "text"),
             ("separator_html", r"<div>outputs&hellip;</div>"),
-            ("source_path", None),
+            ("source_path", fallback_source_path),
             ("source_language", "text"),
         ]
         for key, default in options:
             node[key] = self.options.get(key, default)
-        node["command"] = self.arguments[0]
         self.add_name(node)
         return [node]
 

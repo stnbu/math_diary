@@ -36,7 +36,7 @@ class ScriptdocDirective(rst.Directive):
         return [node]
 
 
-def run_scripts(app, doctree):
+def run(app, doctree):
     for node in doctree.traverse(scriptdoc):
         proc = Popen(node["command"].split(" "), stdout=PIPE, stderr=PIPE)
         out, err = proc.communicate()
@@ -56,6 +56,8 @@ def run_scripts(app, doctree):
             output_node = nodes.literal_block(output_string, output_string)
             output_node["language"] = output_language
 
+        content = [output_node]
+
         if source_show:
             source_path = node.get(
                 "source_path", node["command"].split()[0]  # good luck!
@@ -65,12 +67,12 @@ def run_scripts(app, doctree):
                 source_string = f.read()
             source_node = nodes.literal_block(source_string, source_string)
             source_node["language"] = source_language
-            output_node.append(source_node)
+            content.insert(0, source_node)
 
-        node.replace_self(output_node)
+        node.replace_self(content)
 
 
 def setup(app):
     app.add_directive("scriptdoc", ScriptdocDirective)
-    app.connect("doctree-read", run_scripts)
+    app.connect("doctree-read", run)
     return {"parallel_read_safe": True}

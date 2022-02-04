@@ -6,18 +6,6 @@ Polynomial-Line Intersections
    :tags:
    :category: Elliptic Tales
 
-	    
-
-TEST TEST TEST TEST 
-
-.. scriptdoc:: echo <p><b>This</b> is html</p>
-   :format: html
-
-.. scriptdoc:: echo <p><b>This</b> is html</p>
-   :format: literal
-
-TEST TEST TEST TEST
-
 Knowing full-well that such things are already out there, I created a `python package <https://github.com/stnbu/polynomier>`_ to model polynomials.
 
 My bigger goal is to wade my way through `Elliptic Tales <https://press.princeton.edu/books/hardcover/9780691151199/elliptic-tales>`_, a "popular mathematics" book that identifies as a graduate-level text book. It's a slog. :sub:`*`
@@ -29,50 +17,41 @@ this material. I wasn't aware of this until just recently: writing python to mod
 
 Using the above-mentioned library, I was able (victory!) to model the parameterized line equation substitution featured on p73:
 
-.. include:: 1643834463_files/curve-line_intersect.py
-   :literal:
-
-whose output is
-
-.. program-output:: python3 1643834463_files/curve-line_intersect.py
+.. scriptdoc:: python3 1643834463_files/curve-line_intersect.py
+   :output_language: text
+   :source_show:
+   :source_path: 1643834463_files/curve-line_intersect.py
+   :source_language: python
 
 Pretty neat, eh?
 
 The text chose this parameterization (L) such that ``g(0) = f(ξ, η) = 0``. What happens if we change ``g``? The fact that they intersect implies that ``g`` has no constant terms. Let's see if we can break that...
 
-.. include:: 1643834463_files/curve-line_nointersect.py
-   :literal:
-
-outputs
-      
-.. program-output:: python3 1643834463_files/curve-line_nointersect.py
-
+.. scriptdoc:: python3 1643834463_files/curve-line_nointersect.py
+   :output_language: text
+   :source_show:
+   :source_path: 1643834463_files/curve-line_nointersect.py
+   :source_language: python
+		    
 Oops! A constant term!
 
-Let's take a look at the plot of both equations. Using the sympy snippet
+Take a look at the plot of the original equations.
 
-.. include:: 1643834463_files/et_p73_exercise.py
-   :literal:
+.. scriptdoc:: python3 1643834463_files/et_p73_exercise.py
+   :output_language: html
 
-whose plot looks like
+Since *intersecting* is key, and since things are symmetrical, it looks like we could just negate the line's slope and again, we will get ``L(t) = f(-1, -5) = 0``: another point where the two lines intersect and ``t=0``.
 
-.. raw:: html
-   :file: 1643834463_files/et_p73_exercise.py.svg
+.. scriptdoc:: python3 1643834463_files/curve-line_intersect_negL.py
+   :output_language: text
+   :source_show:
+   :source_path: 1643834463_files/curve-line_intersect_negL.py
+   :source_language: python
 
-Since *intersecting* is key, it looks like we could just negate the line's slope and still get no constant terms. Let us see...
+Again, we got no constant term. The plot looks like you would expect.
 
-.. include:: 1643834463_files/curve-line_intersect_negslope.py
-   :literal:
-
-which outputs
-
-.. program-output:: python3 1643834463_files/curve-line_intersect_negslope.py
-
-Indeed, still no constant term. It also looks like we could slide it up just a bit
-
-and...
-
-still no constant terms.
+.. scriptdoc:: python3 1643834463_files/et_p73_exercise_negL.py
+   :output_language: html
 
 The next page and a half gets pretty deep for my waders. I hope *deriving* polynomial composition will make the going more intuitive.
 

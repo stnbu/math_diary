@@ -15,7 +15,7 @@ f_series = ImplicitSeries(
     nb_of_points=300,
     line_color='blue')
 
-plot_expr = [(2*t + 1, t - 5, (t, -10, 10))]
+plot_expr = [(- 2*t - 1, t - 5, (t, -10, 10))]
 l_series = [Parametric2DLineSeries(*arg) for arg in plot_expr]
 
 #plot_expr = [(4*t**2 + 5*t, (t, -10, 10))]

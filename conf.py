@@ -195,6 +195,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "alabaster",
+    "scriptdoc",
     "ablog",
     "sphinxcontrib.programoutput",
 ]

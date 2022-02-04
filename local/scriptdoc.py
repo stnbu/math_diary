@@ -7,13 +7,13 @@ from docutils.parsers.rst.directives import flag, unchanged
 class scriptdoc(nodes.Element):
     pass
 
+
 class ScriptdocDirective(rst.Directive):
     has_content = False
     final_argument_whitespace = True
     required_arguments = 1
     option_spec = dict(
         output_language=unchanged,
-
         source_path=unchanged,
         source_language=unchanged,
         source_show=flag,
@@ -57,16 +57,17 @@ def run_scripts(app, doctree):
             output_node["language"] = output_language
 
         if source_show:
-            source_path = node.get("source_path", node["command"].split()[0]) # good luck!
+            source_path = node.get(
+                "source_path", node["command"].split()[0]  # good luck!
+            )
             source_string = None
             with open(source_path) as f:
                 source_string = f.read()
             source_node = nodes.literal_block(source_string, source_string)
             source_node["language"] = source_language
             output_node.append(source_node)
-            
-        node.replace_self(output_node)
 
+        node.replace_self(output_node)
 
 
 def setup(app):

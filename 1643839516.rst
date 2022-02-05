@@ -8,7 +8,7 @@ Straightening the Curves...
 
 The big revelation that came to in me the few pages starting around p54 is...
 
-.. important:: Letting the :math:`z` of a homogenized polynomial in :math:`f(x,y)` tend toward zero has the effect of straightening the curve. With :math:`z=0` the resulting curve is a straight line that intersects with projective coordinate :math:`[a : b: 0]`, where :math:`a` and :math:`b` depend upon the "slope" of the resulting (straight) line.
+.. important:: Letting the :math:`z` of a homogenized polynomial in :math:`f(x,y)` tend toward zero has the effect of straightening the curve. With :math:`z=0` the resulting curve is a straight line that intersects with projective coordinate :math:`(a : b: 0)`, where :math:`a` and :math:`b` depend upon the "slope" of the resulting (straight) line.
 
 For example, the following `sympy <https://www.sympy.org/>`_ snippet
 
@@ -38,7 +38,7 @@ We vary :math:`z` along :math:`[1,0]` by increments of :math:`-0.1`, plotting a 
 
 [Do you see a green vertical line? Me neither.]
 
-We wrap the homogenized projective polynomial with a function that graphs the function as values of :math:`z` get smaller. The color of the line gets progressively more red as :math:`z` shrinks. Visually, it's pretty compelling that the limit as :math:`z` approaches zero will be a straight vertical line. That's our point-at-infinity. In a sense, the line *is* the point at infinity. More specifically, it is the point on the projective plane :math:`[0 : 1 : 0]`; our friend, the (any) vertical line.
+We wrap the homogenized projective polynomial with a function that graphs the function as values of :math:`z` get smaller. The color of the line gets progressively more red as :math:`z` shrinks. Visually, it's pretty compelling that the limit as :math:`z` approaches zero will be a straight vertical line. That's our point-at-infinity. In a sense, the line *is* the point at infinity. More specifically, it is the point on the projective plane :math:`(0 : 1 : 0)`; our friend, the (any) vertical line.
 
 Let's try a handful of other polynomials in :math:`x, y`.
 

@@ -23,12 +23,12 @@ But, when :math:`z=0` the resulting equation will be a just a straight line. Som
 
 Some examples will be illuminating.
 
-.. list-table:: Let Us See
+.. list-table:: Homogenized Polynomials
    :header-rows: 1
 
    * - :math:`f(x,y)`
      - :math:`h(x,y,z)`
-     - :math:`\lim{z \to 0} h(x,y,z)`
+     - :math:`\lim\limits_{z \to 0} h(x,y,z)`
      - Projective Coordinates
    * - :math:`x^2 - y`
      - :math:`x^2 - yz`
@@ -45,7 +45,7 @@ Some examples will be illuminating.
 
 Respectively, these correspond to: vertical line, horizontal line, and the 45° :math:`x = y` line.
 
-The middle equation :math:`yx^2` gave me some trouble. Plotting, as we did `before <../1643839516/>`_ we get a clear indication that this strange shape is tending to flatten out toward the :math:`x` axis:
+The middle equation :math:`yx^2 = 0` gave me some trouble. Plotting, as we did `before <../1643839516/>`_ we get a clear indication that this strange shape is tending to flatten out toward the :math:`x` axis:
 
 .. scriptdoc:: python3 1644082574_files/xy^2-3.py
    :output_language: html
@@ -80,4 +80,4 @@ With :math:`y=1`...
 
 Take a look at the 3D plot of this monstrosity `here <https://www.wolframalpha.com/input?i=yx%5E2+-+3z%5E3+%3D+0>`_
 
-One can imagine "exploring" the behavior as you near the origin approaching from, e.g. :math:`z=1` towards :math:`z=0` to understand the behavior of :math:`f(x,y) = 0` either :math:`x/y` gets very small or big.
+One can imagine "exploring" the behavior as you near the origin approaching from, e.g. :math:`z=1` towards :math:`z=0` to understand the behavior of :math:`f(x,y) = 0` for very large values of `x` and/or `y`.

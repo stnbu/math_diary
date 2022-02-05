@@ -8,31 +8,74 @@ Straightening the Curves...
 
 The big revelation that came to in me the few pages starting around p54 is...
 
-.. important:: Letting the ``z`` of a homogenized polynomial in ``x,y`` has the effect of straightening the curve. With ``z=0`` the resulting curve is a straight line with the slope of ``[a : b: 0]``; the point at infinity that ends the original polynomial
+.. important:: Letting the :math:`z` of a homogenized polynomial in :math:`f(x,y)` tend toward zero has the effect of straightening the curve. With :math:`z=0` the resulting curve is a straight line that intersects with projective coordinate :math:`[a : b: 0]`, where :math:`a` and :math:`b` depend upon the "slope" of the resulting (straight) line.
 
 For example, the following `sympy <https://www.sympy.org/>`_ snippet
 
-.. include:: 1643839516_files/projective.py
-   :literal:
+.. math::
 
-produces
+   f(x,y) = x^3 - y = 0
 
-.. raw:: html
-   :file: projective.html
+.. scriptdoc:: python3 1643839516_files/projective.py
+   :output_language: html
+   :source_show:
+   :source_path: 1643839516_files/projective.py
+   :source_language: python
 
-tbd...
+Which "points at infinity" can we say intersect with this curve?
 
-Now homogenize that same polynomial.
+With the above observation, we can add a :math:`z` term to the equation and homogenize the polynomial, with the knowledge that in the affine plane (regular :math:`x,y`), :math:`z=1` by definition.
 
+The following sympy script plots :math:`f(x,y) = x^3 - y = 0`, homogenized as :math:`f'(x,y,z) = x^3 - yz^2 = 0` where if :math:`z=1`, we get the original equation back -- :math:`f'(x,y,1) = x^3 - y = 0`
 
-with ``z=1`` we get the *same* polynomial:
+We vary :math:`z` along :math:`[1,0]` by increments of :math:`-0.1`, plotting a slightly redder color for each smaller value of :math:`z`.
 
-image
+.. scriptdoc:: python3 1643839516_files/projective_homogenized.py
+   :output_language: html
+   :source_show:
+   :source_path: 1643839516_files/projective_homogenized.py
+   :source_language: python
 
-With ``z=0.5``, we get some amount of flattening:
+[Do you see a green vertical line? Me neither.]
 
+We wrap the homogenized projective polynomial with a function that graphs the function as values of :math:`z` get smaller. The color of the line gets progressively more red as :math:`z` shrinks. Visually, it's pretty compelling that the limit as :math:`z` approaches zero will be a straight vertical line. That's our point-at-infinity. In a sense, the line *is* the point at infinity. More specifically, it is the point on the projective plane :math:`[0 : 1 : 0]`; our friend, the (any) vertical line.
 
-The following are progressions from ``z=1`` to ``z=0`` in steps of ``0.1``:
+Let's try a handful of other polynomials in :math:`x, y`.
 
+.. math::
 
-We end up with a straight line!
+   f(x,y) = x^2 - y = 0
+
+.. scriptdoc:: python3 1643839516_files/projective_homogenized_eq_01.py
+   :output_language: html
+   :source_show:
+   :source_path: 1643839516_files/projective_homogenized_eq_01.py
+   :source_language: python
+
+.. math::
+
+   f(x,y) = xy - x^2 + y + x + 1
+
+.. scriptdoc:: python3 1643839516_files/projective_homogenized_eq_02.py
+   :output_language: html
+   :source_show:
+   :source_path: 1643839516_files/projective_homogenized_eq_02.py
+   :source_language: python
+
+That's pretty compelling. This looks like a general technique, as promised by the book.
+
+.. important::
+
+   Recall that the degree of a polynomial is equal to the highest degree of its terms. For polynomials in multiple
+   variables, this means *adding* the powers of the term. Examples:
+
+   * :math:`x^2` has degree 2
+   * :math:`xy` has degree 2
+   * :math:`x^2y` has degree 3
+   * :math:`x^2y + y^4` has degree 4
+
+   To homogenize a (finite) polynomial :math:`f(x,y)`, introduce a new variable :math:`z`, resulting in a new function :math:`f'(x,y,z)`. This new :math:`z` term is by definition equal to one in the "normal" :math:`(x,y)` plane.
+
+   This means that :math:`f(x, y) = f'(x, y, 1) = 0`, meaning you can multiply the original :math:`f'` terms by any power of `z` you like without affecting the behavior of :math:`f'` in the usual :math:`x,y`-plane.
+
+   Let the degree of :math:`f` be :math:`k`. For any term in :math:`f` whose degree is :math:`j < k`, multiply the term by :math:`z^{k-j}`. :math:`z=1` in the affine (usual) plane, again *by definition*, so you are free to multiply any term in :math:`f(x,y)` by any power of :math:`z` without affecting its behavior in the affine plane.

@@ -9,7 +9,7 @@ g_x = MultiPoly({fd({t: 1}): 2, fd(): 1}) * -1
 g_y = MultiPoly({fd({t: 1}): 1, fd(): -5})
 
 # swap the x and y parameterization expressions
-#g_x, g_y = g_y, g_x
+# g_x, g_y = g_y, g_x
 
 g = f.substitute((x, g_x), (y, g_y))
 

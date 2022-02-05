@@ -1,4 +1,3 @@
-
 from subprocess import Popen, PIPE
 from docutils import nodes
 from docutils.parsers import rst

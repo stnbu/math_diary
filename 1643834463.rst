@@ -12,8 +12,7 @@ My bigger goal is to wade my way through `Elliptic Tales <https://press.princeto
 
 I'll consider this the first post in a series about the book. As this is called "Math Diary", there is no ``math`` tag. It's all math. Isn't it?
 
-So I won't feel too bad if occasionally I find myself writing multiple posts and new tools in order to comprehend
-this material. I wasn't aware of this until just recently: writing python to model mathematical ideas is just the thing for upping my comprehension game and actually, counter-intuitively, making the going easier...and more enjoyable.
+So I won't feel too bad if occasionally I find myself writing multiple posts and new tools in order to comprehend even just a page or two of this material. I wasn't aware of this until just recently: writing python to model mathematical ideas is just the thing for upping my comprehension game and actually, counter-intuitively, making the going easier...and more enjoyable.
 
 Using the above-mentioned library, I was able (victory!) to model the parameterized line equation substitution featured on p73:
 
@@ -25,14 +24,14 @@ Using the above-mentioned library, I was able (victory!) to model the parameteri
 
 Pretty neat, eh?
 
-The text chose this parameterization (L) such that ``g(0) = f(ξ, η) = 0``. What happens if we change ``g``? The fact that they intersect implies that ``g`` has no constant terms. Let's see if we can break that...
+The text chose this parameterization (:math:`L`) such that :math:`g(0) = f(ξ, η) = 0`. What happens if we change :math:`L`? The fact that they intersect implies that :math:`g(t)` has no constant terms. Let's see if we can break that...
 
 .. scriptdoc:: python3 1643834463_files/curve-line_nointersect.py
    :output_language: text
    :source_show:
    :source_path: 1643834463_files/curve-line_nointersect.py
    :source_language: python
-		    
+
 Oops! A constant term!
 
 Take a look at the plot of the original equations.
@@ -40,7 +39,7 @@ Take a look at the plot of the original equations.
 .. scriptdoc:: python3 1643834463_files/et_p73_exercise.py
    :output_language: html
 
-Since *intersecting* is key, and since things are symmetrical, it looks like we could just negate the line's slope and again, we will get ``L(t) = f(-1, -5) = 0``: another point where the two lines intersect and ``t=0``.
+Since *intersecting* is key, and since things are symmetrical, it looks like we could just negate the line's slope and again, we will get :math:`L(t) = f(-1, -5) = 0`: another point where the two lines intersect and :math:`t=0`.
 
 .. scriptdoc:: python3 1643834463_files/curve-line_intersect_negL.py
    :output_language: text
@@ -52,6 +51,8 @@ Again, we got no constant term. The plot looks like you would expect.
 
 .. scriptdoc:: python3 1643834463_files/et_p73_exercise_negL.py
    :output_language: html
+
+Later in the book, some straightforward methods for choosing such an :math:`L` are discussed.
 
 The next page and a half gets pretty deep for my waders. I hope *deriving* polynomial composition will make the going more intuitive.
 

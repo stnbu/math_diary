@@ -7,9 +7,9 @@ def print_svg(plot):
     f = io.StringIO()
     backend.fig.savefig(f, format="svg")
     f.seek(0)
-    f.readline() # m
-    f.readline() # e
-    f.readline() # h
+    f.readline()  # m
+    f.readline()  # e
+    f.readline()  # h
     print(f.read())
 
 

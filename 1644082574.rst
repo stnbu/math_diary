@@ -16,7 +16,7 @@ The projective plane allows us to explore behaviors of curves at infinities, sin
 
 Recall that we can homogenize a polynomial :math:`f(x,y)` by including a :math:`z^{k-j}` in each of its monomials, where :math:`k` is the degree of the :math:`f` and :math:`j` is the degree of the monomial we are modifying. If we call this new polynomial :math:`h(x,y,z)`, we can say that :math:`h` is the homogenization of polynomial :math:`f` in the projective plane.
 
-This all sounds pretty arbitrary, but when we recall that :math:`z=1` **by definition** in the finite (usual :math:`x,y`) plane, we are unaffected by :math:`z` and nothing weird is going on. :math:`h(x,y,1) = f(x,y)`!
+This all sounds pretty arbitrary, but when we recall that :math:`z=1` **by definition** in the finite (usual :math:`x,y`) plane, we are unaffected by :math:`z` and nothing weird is going on; :math:`h(x,y,1) = f(x,y)`!
 
 But, when :math:`z=0` the resulting equation will be a just a straight line. Sometimes :math:`x = 0`, sometimes :math:`y = 0`, the vertical and horizontal axes respectively. Sometimes the resulting equation will be :math:`a/b = 0`, which again, while seemingly nonsensical, if we observe such a homogenized curve's behavior as :math:`z` *approaches* zero, we can see that what's emerging is a line with slope :math:`a/b`.
 
